@@ -14,9 +14,9 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      ssl: process.env.DB_SSL === 'prod' ? true : false,
+      ssl: process.env.STAGE === 'prod' ? true : false,
       extra: {
-        ssl: process.env.DB_SSL === 'prod'
+        ssl: process.env.STAGE === 'prod'
           ? {rejectUnauthorized: false}
           : null,
       },
